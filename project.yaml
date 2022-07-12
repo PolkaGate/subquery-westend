@@ -1,0 +1,29 @@
+specVersion: 1.0.0
+name: PolkaGate
+version: 1.0.0
+runner:
+  node:
+    name: "@subql/node"
+    version: ">=1.0.0"
+  query:
+    name: "@subql/query"
+    version: "*"
+description: This project can be used to query Westend chain
+repository: "https://github.com/Nick-1979/subquery/subql-starter"
+schema:
+  file: ./schema.graphql
+network:
+  chainId: "0xe143f23803ac50e8f6f8e62695d1ce9e4e1d68aa36c1cd2cfd15340213f3423e"
+  endpoint: "wss://westend.api.onfinality.io/public-ws"
+  dictionary: "https://api.subquery.network/sq/subquery/polkadot-dictionary"
+dataSources:
+  - kind: substrate/Runtime
+    startBlock: 1
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleEvent
+          kind: substrate/EventHandler
+          filter:
+            module: balances
+            method: Transfer
