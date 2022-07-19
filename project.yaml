@@ -18,12 +18,17 @@ network:
   dictionary: "https://api.subquery.network/sq/subquery/polkadot-dictionary"
 dataSources:
   - kind: substrate/Runtime
-    startBlock: 1
+    startBlock: 11043552
     mapping:
       file: ./dist/index.js
       handlers:
-        - handler: handleEvent
+        - handler: handleTransfers
           kind: substrate/EventHandler
           filter:
             module: balances
             method: Transfer
+        - handler: handleVouches
+          kind: substrate/EventHandler
+          filter:
+            module: recovery
+            method: RecoveryVouched
