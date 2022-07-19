@@ -29,6 +29,7 @@
     "ipfs-unixfs": "6.0.6"
   },
   "dependencies": {
+    "ts-node": "^10.9.1",
     "umi-request": "^1.4.0"
   }
 }

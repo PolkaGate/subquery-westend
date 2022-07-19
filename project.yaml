@@ -22,11 +22,6 @@ dataSources:
     mapping:
       file: ./dist/index.js
       handlers:
-        - handler: handleTransfers
-          kind: substrate/EventHandler
-          filter:
-            module: balances
-            method: Transfer
         - handler: handleVouches
           kind: substrate/EventHandler
           filter:
