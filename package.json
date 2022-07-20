@@ -1,5 +1,5 @@
 {
-  "name": "polkaate",
+  "name": "polkagate",
   "version": "1.0.0",
   "description": "This project can be used to query Westend chain",
   "main": "dist/index.js",
