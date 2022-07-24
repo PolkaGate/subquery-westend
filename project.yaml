@@ -27,3 +27,8 @@ dataSources:
           filter:
             module: recovery
             method: RecoveryVouched
+        - handler: handleInitiations
+          kind: substrate/EventHandler
+          filter:
+            module: recovery
+            method: RecoveryInitiated
