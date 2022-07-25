@@ -1,5 +1,5 @@
 import { SubstrateEvent } from "@subql/types";
-import { RecoveryVouched, RecoveryInitiated } from "../types";
+import { RecoveryVouched, RecoveryInitiated, RecoveryClosed } from "../types";
 
 export async function handleVouche(event: SubstrateEvent): Promise<void> {
   // Get data from the event
@@ -35,12 +35,12 @@ export async function handleInitiation(event: SubstrateEvent): Promise<void> {
 }
 
 export async function handleClose(event: SubstrateEvent): Promise<void> {
-  // RecoveryInitiated(AccountId32, AccountId32)
+  // RecoveryClosed(AccountId32, AccountId32)
   const lost = event.event.data[0];
   const rescuer = event.event.data[1];
 
   // Create the new close entity
-  const close = new RecoveryInitiated(
+  const close = new RecoveryClosed(
     `${event.block.block.header.number.toNumber()}-${event.idx}`
   );
   close.blockNumber = event.block.block.header.number.toBigInt();
