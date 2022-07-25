@@ -22,13 +22,18 @@ dataSources:
     mapping:
       file: ./dist/index.js
       handlers:
-        - handler: handleVouches
+        - handler: handleVouche
           kind: substrate/EventHandler
           filter:
             module: recovery
             method: RecoveryVouched
-        - handler: handleInitiations
+        - handler: handleInitiation
           kind: substrate/EventHandler
           filter:
             module: recovery
             method: RecoveryInitiated
+        - handler: handleClose
+          kind: substrate/EventHandler
+          filter:
+            module: recovery
+            method: RecoveryClosed
